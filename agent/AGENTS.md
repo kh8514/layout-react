@@ -263,6 +263,11 @@ npm run lint
 - `.tsx`에서 `.jsx`를 import하려면 `tsconfig.app.json`에 `allowJs: true`가 필요함(타입 체크는 안 하지만 모듈 해석은 필요). 추가해둠.
 - 임시로 App.tsx에 Preview를 마운트해 `npm run build` 결과물에 마크업(`Logo`, `header-01`)이 포함되는지 확인 후 원복함 — Preview/code 문자열이 실제로 동작/일치함을 검증하는 절차로 다음 task에서도 동일하게 사용 가능.
 
+### Task 2: 레이아웃 데이터 구조 정의
+- Task 0 패턴을 따라 `SidebarLayouts/SidebarBasic.jsx`, `CardLayouts/CardBasic.jsx`를 추가 작성(각각 category: navigation, card).
+- `src/data/layouts.js`에서 세 모듈을 import해 `layouts` 배열(length 3)로 export.
+- 검증 방식은 Task 0와 동일: App.tsx에 임시로 전체 Preview를 마운트 → `npm run build` → 번들에서 `header-01`/`sidebar-01`/`card-01` 및 텍스트가 모두 1회 이상 등장하는지 grep 확인 → 원복.
+
 ### Task 1: 폴더 구조 설계
 - 리포 스캐폴드가 TypeScript(tsconfig, .tsx)로 시작되어 있어 본 문서의 "JS만 사용" 방침과 충돌. 사용자 확인 결과 AGENTS.md 기준(.jsx/.js)을 따르기로 결정.
 - `tsconfig.app.json`에 `allowJs`가 없어 `.js`/`.jsx`는 tsc 타입체크 대상에서 제외됨 — `tsc -b`가 깨지지 않음. Vite는 `.jsx` 확장자를 기본 지원.

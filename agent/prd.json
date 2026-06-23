@@ -78,9 +78,9 @@
       ],
       "dependencies": [0, 1],
       "priority": "critical",
-      "status": "pending",
-      "passes": false,
-      "attempts": 0
+      "status": "completed",
+      "passes": true,
+      "attempts": 1
     },
     {
       "id": 3,
