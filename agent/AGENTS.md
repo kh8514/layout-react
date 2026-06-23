@@ -258,6 +258,11 @@ npm run lint
 ### 2024-XX-XX: 시작 단계
 - (작업 진행하면서 채워질 예정)
 
+### Task 0: 미리보기 렌더링 전략 및 데이터 모델 확정
+- `src/layouts/HeaderLayouts/HeaderBasic.jsx`에 B방식(실제 컴포넌트 + 표시용 code 문자열) 패턴 예시 작성. `{ id, name, category, description, tags, Preview, code:{jsx,html,css} }` 형태로 export.
+- `.tsx`에서 `.jsx`를 import하려면 `tsconfig.app.json`에 `allowJs: true`가 필요함(타입 체크는 안 하지만 모듈 해석은 필요). 추가해둠.
+- 임시로 App.tsx에 Preview를 마운트해 `npm run build` 결과물에 마크업(`Logo`, `header-01`)이 포함되는지 확인 후 원복함 — Preview/code 문자열이 실제로 동작/일치함을 검증하는 절차로 다음 task에서도 동일하게 사용 가능.
+
 ### Task 1: 폴더 구조 설계
 - 리포 스캐폴드가 TypeScript(tsconfig, .tsx)로 시작되어 있어 본 문서의 "JS만 사용" 방침과 충돌. 사용자 확인 결과 AGENTS.md 기준(.jsx/.js)을 따르기로 결정.
 - `tsconfig.app.json`에 `allowJs`가 없어 `.js`/`.jsx`는 tsc 타입체크 대상에서 제외됨 — `tsc -b`가 깨지지 않음. Vite는 `.jsx` 확장자를 기본 지원.
